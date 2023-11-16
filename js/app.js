@@ -75,7 +75,7 @@ function displayModal(index) {
         <hr />
         <p>${phone}</p>
         <p class="address">${street.number} ${street.name}, ${state} ${postcode}</p>
-        <p>Birthday: ${String(date.getMonth() + 1).padStart(2, '0')}/${String(date.getDate()).padStart(2, '0')}/${date.getFullYear()}</p>
+        <p>Birthday: ${date.toLocaleDateString(navigator.language)}</p>
         <div class="modal-buttons">
         <button class="btn-prev" onclick="changeEmployee(-1)">↩ Previous</button>
         <button class="btn-next" onclick="changeEmployee(1)">Next ↪</button>
@@ -86,6 +86,8 @@ function displayModal(index) {
     modalContainer.innerHTML = modalHTML;
     modalContainer.dataset.currentIndex = index;
 }
+//Line below has been swapped with a shorter, more concise date method on line 78. 
+//<p>Birthday: ${String(date.getMonth() + 1).padStart(2, '0')}/${String(date.getDate()).padStart(2, '0')}/${date.getFullYear()}</p>
 
 gridContainer.addEventListener('click', e => {
     // make sure the click is not on the gridContainer itself
